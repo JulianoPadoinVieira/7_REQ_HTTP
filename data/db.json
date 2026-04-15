@@ -1,19 +1,54 @@
 {
-  "products": [
+  "users": [
     {
       "id": 1,
-      "name": "Camiseta",
-      "price": 59.9
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556"
+      }
     },
     {
       "id": 2,
-      "name": "Calça Vermelha",
-      "price": 90
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "Shanna@melissa.tv",
+      "address": {
+        "street": "Victor Plains",
+        "suite": "Suite 879"
+      }
     },
     {
       "id": 3,
-      "name": "Boné aba reta",
-      "price": 29.9
+      "name": "Clementine Bauch",
+      "username": "Samantha",
+      "email": "Nathan@yesenia.net",
+      "address": {
+        "street": "Douglas Extension",
+        "suite": "Suite 847"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "username": "Karianne",
+      "email": "Julianne.OConner@kory.org",
+      "address": {
+        "street": "Hoeger Mall",
+        "suite": "Apt. 692"
+      }
+    },
+    {
+      "name": "fg",
+      "username": "ghjj",
+      "id": 5
+    },
+    {
+      "name": "Aaaa",
+      "username": "Bbbb",
+      "id": 6
     }
   ]
 }
