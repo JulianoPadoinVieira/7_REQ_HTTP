@@ -70,7 +70,18 @@ function App() {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </label>
-            <input type="submit" value="Criar" />
+            {/* 99(7) - State de loading no post */}
+            {loading && (
+              <input
+                type="submit"
+                value="Adicionando"
+                disabled
+                className="btn"
+              />
+            )}
+            {!loading && (
+              <input type="submit" value="Adicionar" className="btn" />
+            )}
           </form>
         </div>
       </div>
