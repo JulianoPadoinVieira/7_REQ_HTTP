@@ -9,7 +9,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   // 96(4) - Custom Hooks
-  const { data: items, httpConfig, loading } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   const [name, setName] = useState([]);
   const [username, setUsername] = useState([]);
@@ -35,7 +35,8 @@ function App() {
         <h1>Lista de Usuários</h1>
         {/*98(6) - Loading*/}
         {loading && <p>Carregando lista...</p>}
-        {!loading && (
+        {error && <p>Erro ao carregar a página</p>}
+        {!error && (
           <ul>
             {items &&
               items.map((user) => (
