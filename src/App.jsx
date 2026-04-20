@@ -14,6 +14,8 @@ function App() {
   const [name, setName] = useState([]);
   const [username, setUsername] = useState([]);
 
+  const [action, setAction] = useState([]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -23,10 +25,16 @@ function App() {
     };
 
     // 97(5) - Refatorando o POST
+    console.log(user);
     httpConfig(user, "POST");
 
     setName("");
     setUsername("");
+  };
+
+  // 9 - Desafio 6
+  const handleRemove = (id) => {
+    httpConfig(id, "DELETE");
   };
 
   return (
@@ -46,6 +54,18 @@ function App() {
                     <strong> Usuário: </strong> {user.username} |
                     <strong> Email: </strong> {user.email} |
                     <strong> Endereço: </strong> {user?.address?.street} -|
+                    <button
+                      onClick={() => handleRemove(user.id)}
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        fontSize: "18px",
+                        color: "red",
+                      }}
+                    >
+                      ❌
+                    </button>
                   </p>
                 </li>
               ))}

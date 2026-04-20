@@ -16,7 +16,10 @@ export const useFetch = (url) => {
   //100(8) - Tratamentos de exceção
   const [error, setError] = useState(null);
 
-  const httpConfig = (data, method) => {
+  // 9 - Desafio 6
+  const [itemId, setItemId] = useState(null);
+
+  const httpConfig = (data, method, id) => {
     if (method === "POST") {
       setConfig({
         method,
@@ -27,6 +30,17 @@ export const useFetch = (url) => {
       });
 
       setMethod(method);
+    }
+    if (method == "DELETE") {
+      setConfig({
+        method,
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+
+      setMethod(method);
+      setItemId(data);
     }
   };
 
@@ -55,15 +69,24 @@ export const useFetch = (url) => {
   // 97(5) - Refatorando o POST
   useEffect(() => {
     const httpRequest = async () => {
+      let json;
+
       if (method == "POST") {
         let fetchOptions = [url, config];
 
         const res = await fetch(...fetchOptions);
 
-        const json = await res.json();
+        json = await res.json();
+        // 9 - Desafio 6
+      } else if (method === "DELETE") {
+        const deleteUrl = `${url}/${itemId}`;
 
-        setCallFetch(json);
+        const res = await fetch(deleteUrl, config);
+
+        json = await res.json();
       }
+
+      setCallFetch(json);
     };
 
     httpRequest();
